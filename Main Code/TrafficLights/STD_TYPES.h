@@ -7,7 +7,6 @@
 #define STD_TYPES_H
 
 typedef unsigned char uint_8;
-typedef unsigned char uint_8;
 typedef signed char sint_8;
 
 typedef unsigned short int  uint_16;

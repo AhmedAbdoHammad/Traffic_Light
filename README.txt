@@ -1,8 +1,3 @@
-********************************************************************* Auther       : Ahmed Hammad        *******************************************************************************
-********************************************************************* Creation date: 5th of january 2025 *******************************************************************************
-
-********************************************************************* Project States description ***************************************************************************************
-
 * This project is mainly used to control 4 directions traffic lights with pedstrains.
 
 
@@ -29,21 +24,21 @@
 
 *The traffic Lights can also be cotrolled using a web server which will help us in case of specific emergency like ambulance or police car needs to pass emergently
 
-******************************************************************* Hardware Implementation ********************************************************************************************
+******************************* Hardware Implementation *******************************
 * 1 ESP8266 Module (It is used to be connected to the web server)
 * 2 Serial input parallel output shift register 74HC595 (They are used to increase the number of GPIO pins in the ESP8266 to control 2 7-segments
 * 2 Red leds, 2 Yellow leds, 4 Green leds, 8 resistors 330 ohm
 * 2 7-segments common cathode to count each light number
 * 3 Buttons for pedstrains and emrgency
 
-******************************************************************* Configurations ******************************************************************************************************
+******************************* Configurations *******************************
 We have set of configurations can be set in the program including: -
 1) Leds and buttons Pins
 2) Wifi SSID and Password
 3) Web Socket IP and Port
 4) Red, Green, Yellow Durations
 
-******************************************************************* Others ******************************************************************************************************
+******************************* Others *******************************
 For any problems or asking for something, reach me out on: ahmedabdo.hammad@gmail.com
 
 Thanks for your time

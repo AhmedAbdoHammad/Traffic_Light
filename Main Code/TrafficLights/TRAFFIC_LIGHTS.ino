@@ -184,6 +184,10 @@ void NorthSouthGreen()
     lastTransitionTime = currentTime;
     NorthSouthPedRequest = false;
   }
+  else
+  {
+    /*Do nothing */
+  }
 }
 
 /***************************************************************************************************/
@@ -213,6 +217,10 @@ void NorthSouthYellow()
   if (currentTime - lastTransitionTime > YELLOW_DURATION) {               //In case of time out
     currentState = EAST_WEST_GREEN;
     lastTransitionTime = currentTime;
+  }
+  else
+  {
+    /*Do nothing */
   }
 }
 
@@ -245,6 +253,10 @@ void EastWestGreen()
     lastTransitionTime = currentTime;
     EastWestPedRequest = false;
   }
+  else
+  {
+    /*Do nothing */
+  }
 }
 
 /***************************************************************************************************/
@@ -274,6 +286,10 @@ void EastWestYellow()
   {
     currentState = PED_CROSS;
     lastTransitionTime = currentTime;
+  }
+  else
+  {
+    /*Do nothing */
   }
 }
 
@@ -306,6 +322,10 @@ void PedCross()
     digitalWrite(PED_EAST_WEST_GREEN_PIN, LOW);
     digitalWrite(PED_NORTH_SOUTH_RED_PIN, HIGH);
     digitalWrite(PED_EAST_WEST_RED_PIN, HIGH);
+  }
+  else
+  {
+    /*Do nothing */
   }
 }
 
@@ -344,7 +364,7 @@ void Emergency()
                    south pedstrain button is pressed
 ***************************************************************************************************/
 void NorthSouthPedButtonISR() {
-  NorthSouthPedRequest = true;
+  NorthSouthPedRequest = TRUE;
 }
 
 /**************************************************************************************************/
@@ -356,7 +376,7 @@ void NorthSouthPedButtonISR() {
                    west pedstrain button is pressed
 ***************************************************************************************************/
 void EastWestPedButtonISR() {
-  EastWestPedRequest = true;
+  EastWestPedRequest = TRUE;
 }
 
 /**************************************************************************************************/
@@ -368,7 +388,7 @@ void EastWestPedButtonISR() {
                    emergency button is pressed
 ***************************************************************************************************/
 void emergencyISR() {
-  emergency = true;
+  emergency = TRUE;
 }
 
 
@@ -382,7 +402,7 @@ void emergencyISR() {
 ***************************************************************************************************/
 void webSocketEvent(WStype_t type, uint8_t* payload, size_t length) {
   if (type == WStype_TEXT) {
-    String message = String((char*)payload);
+    String message = String((uint_8*)payload);
     if (message == "NORTH_SOUTH_GREEN") {
       currentState = NORTH_SOUTH_GREEN;
     } else if (message == "NORTH_SOUTH_YELLOW") {
@@ -399,5 +419,9 @@ void webSocketEvent(WStype_t type, uint8_t* payload, size_t length) {
     {
       /* Do nothing */
     }
+  }
+  else
+  {
+    /*Do nothing */
   }
 }

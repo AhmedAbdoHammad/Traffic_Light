@@ -17,22 +17,22 @@
 #ifndef CONFIG.h
 #define CONFIG.h
 // Wi-Fi credentials
-const uint_8* ssid = "your_SSID";
-const uint_8* password = "your_PASSWORD";
+const char* ssid = "your_SSID";
+const char* password = "your_PASSWORD";
 
 // WebSocket server details
-const uint_8* websocket_server = "3.69.223.192";
+const char* websocket_server = "3.69.223.192";
 const uint16_t websocket_port = 6001;
 
 // Traffic light state machine
-enum TrafficState { IDLE			  , 
-					NORTH_SOUTH_GREEN , 
-					NORTH_SOUTH_YELLOW, 
-					EAST_WEST_GREEN   , 
-					EAST_WEST_YELLOW  , 
-					PED_CROSS		  , 
-					EMERGENCY
-					};
+enum TrafficState { IDLE              , 
+		    NORTH_SOUTH_GREEN , 
+		    NORTH_SOUTH_YELLOW, 
+		    EAST_WEST_GREEN   , 
+                    EAST_WEST_YELLOW  , 
+		    PED_CROSS	      , 
+                    EMERGENCY
+		  };
 TrafficState currentState = IDLE;
 
 // Pin definitions
@@ -57,7 +57,7 @@ const uint_8 CLOCK_PIN = 17;  // SH_CP (Clock) pin
 
 
 // Number to Segment Mapping
-const uint_8 digitMap[] = {
+const byte digitMap[] = {
   // gfedcba
   0b00111111, // 0
   0b00000110, // 1

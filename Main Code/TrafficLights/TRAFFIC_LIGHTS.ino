@@ -131,7 +131,7 @@ void loop() {
     case EAST_WEST_YELLOW  : EastWestYellow();    break;         //The east west traffic light is yellow Mode
     case PED_CROSS         : PedCross();          break;         //Pedstarin cross Mode
     case EMERGENCY         : Emergency();         break;         //Emergency Mode
-	default                : currentState = IDLE  break;         //In case of error, return to Idle state
+	default            : currentState = IDLE; break;         //In case of error, return to Idle state
   }
 }
 

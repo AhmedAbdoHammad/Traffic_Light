@@ -19,12 +19,11 @@
 /*****************************************************************************************************
 **                                     Include Librarie                                             **
 *****************************************************************************************************/
+#include "STD_TYPES.h"
 #include <ESP8266WiFi.h>
 #include <WebSocketsClient.h>
 #include "CONFIG.h"
 #include "INTERFACE.h"
-#include "STD_TYPES"
-WebSocketsClient webSocket;
 
 /*****************************************************************************************************
 **                                     Global Variables                                             **
@@ -39,6 +38,7 @@ volatile bool emergency = false;
 
 // WebSocket message buffer
 String messageBuffer;
+WebSocketsClient webSocket;
 
 /****************************************************************************************************
 **                                     Functions                                                   **
@@ -364,7 +364,7 @@ void Emergency()
                    south pedstrain button is pressed
 ***************************************************************************************************/
 void NorthSouthPedButtonISR() {
-  NorthSouthPedRequest = TRUE;
+  NorthSouthPedRequest = true;
 }
 
 /**************************************************************************************************/
@@ -376,7 +376,7 @@ void NorthSouthPedButtonISR() {
                    west pedstrain button is pressed
 ***************************************************************************************************/
 void EastWestPedButtonISR() {
-  EastWestPedRequest = TRUE;
+  EastWestPedRequest = true;
 }
 
 /**************************************************************************************************/
@@ -388,7 +388,7 @@ void EastWestPedButtonISR() {
                    emergency button is pressed
 ***************************************************************************************************/
 void emergencyISR() {
-  emergency = TRUE;
+  emergency = true;
 }
 
 
@@ -402,7 +402,7 @@ void emergencyISR() {
 ***************************************************************************************************/
 void webSocketEvent(WStype_t type, uint8_t* payload, size_t length) {
   if (type == WStype_TEXT) {
-    String message = String((uint_8*)payload);
+    String message = String((char*)payload);
     if (message == "NORTH_SOUTH_GREEN") {
       currentState = NORTH_SOUTH_GREEN;
     } else if (message == "NORTH_SOUTH_YELLOW") {

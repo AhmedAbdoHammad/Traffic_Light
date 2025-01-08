@@ -19,9 +19,5 @@ typedef float fint_32;
 typedef double fint_64;
 
 typedef unsigned char Std_ReturnType;
-typedef enum {
-	FALSE,
-	TRUE
-}boolean;
 
 #endif
